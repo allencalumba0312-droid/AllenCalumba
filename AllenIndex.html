@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ALLEN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* smooth scroll */
+        }
+
+        body {
+            height: 100vh;
+            overflow-y: auto; /* allow scroll */
+            background-color: #e0d6d6; /* black */
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 1/5 GRID */
+            grid-template-rows: 80px 1fr 60px;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            grid-column: 1 / 6;
+            background: linear-gradient(90deg, #001f3f, #9dafff);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 5px #0f172a;
+        }
+
+        /* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 80px;          /* height of header */
+    left: 0;
+    width: 20%;         /* same as 1 grid column */
+    height: calc(100vh - 140px); /* full height minus header & footer */
+    background-color: #4f4f67;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #7fd1ff;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #1e3a5f;
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        /* CONTENT */
+        .content {
+            grid-column: 2 / 6;
+            background-color: #4a3838;
+            padding: 25px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .content h1 {
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-size: 30px;
+            text-shadow: 1px 1px 5px #000;
+        }
+
+        .content p {
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 700px;
+            line-height: 1.6;
+            color: #cfd9f8;
+        }
+
+        .planet-grid {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .planet {
+            width: 260px;
+            height: 320px;
+            border-radius: 15px;
+            background-color: #020617;
+            border: 2px solid #7fd1ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .planet:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(127, 209, 255, 0.5);
+        }
+
+        .planet img {
+            width: 180px;  /* bigger images */
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #7fd1ff;
+        }
+
+        .planet span {
+            font-weight: bold;
+            color: #7fd1ff;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+
+        .planet small {
+            text-align: center;
+            font-size: 14px;
+            color: #cfd9f8;
+        }
+        /* IMAGE GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #7fd1ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(127, 209, 255, 0.4);
+}
+
+
+        /* FOOTER */
+        .footer {
+            grid-column: 1 / 6;
+            background-color: #020617;
+            color: #7fd1ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 16px;
+            border-top: 1px solid #1e3a5f;
+            margin: 0px;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: verdana;
+        }
+
+        p {
+            text-align: center;
+            color: red;
+        }
+
+        #para1 {
+            color: blue;
+        }
+
+        .sample {
+            border: 4px black dashed;
+        }
+
+        .sample2 {
+            background-color: rgb(255, 98, 0);
+        }
+
+        .nav {
+            padding: 30px;
+            margin: 30px;
+        }
+
+        h2.font {
+            font-family: courier;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">Get to Know Me</div>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="#">PROFILE</a></li>
+            <li><a href="#address">ADDRESS</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#images">IMAGES</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>ALLEN CALUMBA</h1>
+        <p>
+            Me and some of my hobbies.
+        </p>
+
+        <div class="planet-grid">
+            <div class="planet">
+                <img src="7img.jpg" alt="ALLEN">
+                <span>Sport</span>
+                <small>Volleyball</small>
+            </div>
+
+            <div class="planet">
+                <img src="images/1img.jpg" alt="ALLEN">
+                <span>ALLEN</span>
+                <small>Profile</small>
+            </div>
+
+            <div class="planet">
+                <img src="8ing.jpg" alt="ALLEN">
+                 <span>Routine</span>
+                <small>T5</small>
+            </div>
+        </div>
+
+        <!-- ADDED SECTIONS -->
+        <div id="address" class="section">
+            <h1>ADDRESS</h1>
+            <p>I live in Lumbangan, Mabinay, Negros Oriental.</p>
+        </div>
+
+        <div id="about" class="section">
+            <h1>ABOUT</h1>
+            <p>Hi! I'm Allen Calumba, a passionate and active person who enjoys balancing school life with the things I love outside the classroom. I have a strong interest in sports like volleyball, which helps me stay disciplined, energetic, and team-oriented. Playing sports has taught me the value of hard work, communication, and never giving up.
+
+Aside from athletics, I also enjoy spending time improving my daily routines and exploring new hobbies that help me grow as a person. I believe that every day is an opportunity to learn something new and become better than yesterday.
+
+I’m someone who values friendship, respect, and self-improvement. Whether it's in school, sports, or personal life, I always try to give my best and stay positive in every challenge that comes my way.</p>
+        </div>
+
+        <div id="images" class="section">
+            <h1>IMAGES</h1>
+            <p>Here's my images</p>
+<div class="gallery">
+    <img src="5img.jpg" alt="Image 1">
+    <img src="2img.jpg" alt="Image 2">
+    <img src="3img.jpg" alt="Image 3">
+    <img src="4img.jpg" alt="Image 4">
+    <img src="6img.jpg" alt="Image 5">
+</div>
+
+
+        </div>
+
+    </div>
+
+    <div class="footer">Allen Website</div>
+
+</div>
+
+</body>
+</html>
